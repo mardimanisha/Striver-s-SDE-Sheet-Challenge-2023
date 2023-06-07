@@ -1,0 +1,35 @@
+
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solution 
+{
+	public static ArrayList<Integer> nextPermutation(ArrayList<Integer> permutation) 
+	{
+		// Write your code here.
+		 int n= permutation.size();
+		int index1=-1;
+        for(int i=n-1;i>0;i--){
+            if(permutation.get(i-1)< permutation.get(i)){
+                index1= i-1;
+                break;
+            }
+        }
+        if(index1==-1){
+            Collections.sort(permutation);
+            return permutation;
+        }
+        int index2=-1;
+        for(int i=n-1;i>index1;i--){
+            if(permutation.get(i)>permutation.get(index1)){
+                index2=i;
+                break;
+            }
+        }
+        Collections.swap(permutation,index1,index2);
+        Collections.sort(permutation.subList(index1+1,n));
+        return permutation;
+	}
+}
