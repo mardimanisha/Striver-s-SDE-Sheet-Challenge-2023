@@ -1,0 +1,16 @@
+
+import java.util.ArrayList;
+public class Solution {
+    static boolean searchMatrix(ArrayList<ArrayList<Integer>> mat, int target) {
+        // Write your code here.
+        //2D matrix is basically 1-D sorted Array
+        //we can apply  binary search on it.
+        //get index in form of 1d
+		for(int i=0;i<mat.size();i++){
+            if(mat.get(i).contains(target)){
+                return true;
+            }
+        }
+        return false;
+    }
+}
