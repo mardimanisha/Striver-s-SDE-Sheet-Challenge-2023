@@ -1,0 +1,33 @@
+public class Solution {
+    public static double median(int[] a, int[] b) {
+    	// Write your code here.
+        int n = a.length;
+        int m = b.length;
+        int i = 0,j = 0,k=0;
+        int[] temp = new int[n+m];
+
+        while(i<n && j<m){
+            if(a[i] > b[j]){
+                temp[k++] = b[j++];
+            }else{
+                temp[k++] = a[i++];
+            }
+        }
+
+        while(i<n){
+            temp[k++] = a[i++];
+        }
+
+        while(j<m){
+            temp[k++] = b[j++];
+        }
+
+        int mid = temp.length / 2;
+
+        if(temp.length%2 == 0 ){
+            return (temp[mid] + temp[mid-1])/(double)2;
+        }else{
+            return (double) temp[mid];
+        }
+    }
+}
