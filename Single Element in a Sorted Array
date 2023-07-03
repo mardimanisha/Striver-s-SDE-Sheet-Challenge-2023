@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+public class Solution
+{
+    public static int singleNonDuplicate(ArrayList<Integer> arr)
+    {
+        //    Write your code here.
+        int unique=0;        
+        for(int n:arr)        
+        {            
+            unique^=n;        
+        }        
+        return unique;
+    }
+}
